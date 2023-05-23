@@ -1,11 +1,22 @@
-theme = "catppuccin_frappe"
+theme = "everforest_light"
 
 [editor]
 line-number = "relative"
 cursorline = true
 mouse = false
+bufferline = "multiple"
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
-select = "underline"
+select = "block"
+
+[editor.statusline]
+left = ["mode", "file-name"]
+center = ["diagnostics"]
+right = ["file-type", "file-encoding", "position", "separator", "position-percentage", "spinner"]
+mode.normal = "NORMAL"
+
+[editor.file-picker]
+hidden = false
