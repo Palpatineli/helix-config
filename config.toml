@@ -2,21 +2,43 @@ theme = "everforest_light"
 
 [editor]
 line-number = "relative"
-cursorline = true
 mouse = false
-bufferline = "multiple"
+# completion-replace = true
 true-color = true
+bufferline = "multiple"
+# text-width = 120
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "block"
 
-[editor.statusline]
-left = ["mode", "file-name"]
-center = ["diagnostics"]
-right = ["file-type", "file-encoding", "position", "separator", "position-percentage", "spinner"]
-mode.normal = "NORMAL"
-
 [editor.file-picker]
-hidden = false
+hidden = true
+
+[editor.statusline]
+left = ["mode", "diagnostics"] #, "file-modification-indicator", "version-control"]
+center = ["file-name"] # file-base-name"]
+right = ["file-type", "position"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = true
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
+
+[keys.normal]
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+
+[keys.normal.";"]
+j = ":buffer-next"
+k = ":buffer-previous"
+J = "goto_next_diag"
+K = "goto_prev_diag"
