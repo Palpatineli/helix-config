@@ -2,4 +2,20 @@
 name = "python"
 roots = ["pyproject.toml", ".git", "setup.cfg"]
 language-server = {name = "pyright", command = "pyright-langserver", args = ["--stdio"] }
-config = {}
+  [language.config]
+  exclude = [ "__pycache__", "bin", "coverage", "data", "datalib_impl", "doc", "manifests", "notebook", "pyenv", "requirements" ]
+  venvPath = "./pyenv/"
+  pythonVersion = "3.7"
+  pythonPlatform = "Linux"
+  reportTypeshedErrors = false
+  reportMissingImports = false
+  reportMissingTypeStubs = false
+  reportPropertyTypeMismatch = true
+  reportImportCycles = true
+  reportDuplicateImport = true
+  reportIncompatibleMethodOverride = true
+  reportIncompatibleVariableOverride = true
+  stubPath = "./typings"
+  typeCheckingMode = "strict"
+  useLibraryCodeForTypes = true
+  executionEnvironments = [ { extraPaths = [ "/opt/anaconda/2020/envs/py_37_pands0.25/lib/python2.7/site-packages" ], root = "./", venv = "./" } ]

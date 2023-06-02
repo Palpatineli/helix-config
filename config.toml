@@ -38,6 +38,7 @@ C-k = "jump_view_up"
 C-l = "jump_view_right"
 
 [keys.normal.";"]
+";" = "collapse_selection"
 j = ":buffer-next"
 k = ":buffer-previous"
 J = "goto_next_diag"
