@@ -6,7 +6,6 @@ mouse = false
 # completion-replace = true
 true-color = true
 bufferline = "multiple"
-# text-width = 120
 
 [editor.cursor-shape]
 insert = "bar"
@@ -23,6 +22,9 @@ right = ["file-type", "position"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.soft-wrap]
+enable = true
 
 [editor.lsp]
 display-messages = true
@@ -43,3 +45,5 @@ j = ":buffer-next"
 k = ":buffer-previous"
 J = "goto_next_diag"
 K = "goto_prev_diag"
+space = [''':pipe-to tmux load-buffer - \; paste-buffer -dpr -t '{right-of}' \; send-keys -t '{right-of}' Enter''']
+'s' = [''':sh tmux send-keys Q/# Space %% Enter O# Escape Escape Nvg.a BSpace BSpace Escape Escape '\;' Space uuQ''']

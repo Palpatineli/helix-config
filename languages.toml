@@ -1,21 +1,38 @@
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config]
+exclude = [ "__pycache__", "bin", "coverage", "data", "datalib_impl", "doc", "manifests", "notebook", "pyenv", "requirements" ]
+venvPath = "./pyenv/"
+pythonVersion = "3.7"
+pythonPlatform = "Linux"
+reportTypeshedErrors = false
+reportMissingImports = false
+reportMissingTypeStubs = false
+reportPropertyTypeMismatch = true
+reportImportCycles = true
+reportDuplicateImport = true
+reportIncompatibleMethodOverride = true
+reportIncompatibleVariableOverride = true
+stubPath = "./typings"
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+executionEnvironments = [ { extraPaths = [ "/opt/anaconda/2020/envs/py_37_pands0.25/lib/python2.7/site-packages" ], root = "./", venv = "./" } ]
+
 [[language]]
 name = "python"
+auto-format = true
+formatter = { command = "black", args = ["-", '-q', '--line-length=120'] }
 roots = ["pyproject.toml", ".git", "setup.cfg"]
-language-server = {name = "pyright", command = "pyright-langserver", args = ["--stdio"] }
-  [language.config]
-  exclude = [ "__pycache__", "bin", "coverage", "data", "datalib_impl", "doc", "manifests", "notebook", "pyenv", "requirements" ]
-  venvPath = "./pyenv/"
-  pythonVersion = "3.7"
-  pythonPlatform = "Linux"
-  reportTypeshedErrors = false
-  reportMissingImports = false
-  reportMissingTypeStubs = false
-  reportPropertyTypeMismatch = true
-  reportImportCycles = true
-  reportDuplicateImport = true
-  reportIncompatibleMethodOverride = true
-  reportIncompatibleVariableOverride = true
-  stubPath = "./typings"
-  typeCheckingMode = "strict"
-  useLibraryCodeForTypes = true
-  executionEnvironments = [ { extraPaths = [ "/opt/anaconda/2020/envs/py_37_pands0.25/lib/python2.7/site-packages" ], root = "./", venv = "./" } ]
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
+shebangs = ["python"]
+comment-token = "#"
+language-servers = [ "pyright" ]
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "python"
+source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "de221eccf9a221f5b85474a553474a69b4b5784d" }
