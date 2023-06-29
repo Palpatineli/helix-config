@@ -1,16 +1,19 @@
 theme = "everforest_light"
 
 [editor]
+bufferline = "multiple"
+color-modes = true
+completion-replace = true
 line-number = "relative"
 mouse = false
-# completion-replace = true
+rulers = [119]
+undercurl = true
 true-color = true
-bufferline = "multiple"
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
-select = "block"
+select = "underline"
 
 [editor.file-picker]
 hidden = true
@@ -18,7 +21,7 @@ hidden = true
 [editor.statusline]
 left = ["mode", "diagnostics"] #, "file-modification-indicator", "version-control"]
 center = ["file-name"] # file-base-name"]
-right = ["file-type", "position"]
+right = ["spinner", "file-type", "position"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
@@ -32,12 +35,19 @@ display-messages = true
 [editor.indent-guides]
 render = true
 skip-levels = 1
+character = "▏"
 
 [keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
 C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
+'}' = 'goto_next_paragraph'
+'{' = 'goto_prev_paragraph'
+
+[keys.normal.space]
+F = 'file_picker_in_current_buffer_directory'
 
 [keys.normal.";"]
 ";" = "collapse_selection"
